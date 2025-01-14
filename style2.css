@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+.header_nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(2, 0, 1, 0.421);
+}
+.header_menu{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    margin-right: 100px;
+    color: white;
+    margin-top: 45px;
+}
+img{
+    margin-left: 50px;
+}
+.conatiner{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+header{
+    background: #1F242D;
+    
+}
+li a{
+    color: white;
+    transition: 500ms;
+}
+li a:hover{
+    color: rgb(234, 234, 48);
+}
+main{
+    background: #0e182c;
+}
+.img1{
+    margin-top: 150px;
+}
+.logo1{
+    display: flex;
+    justify-content: space-between;
+}
+.p2{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    gap: 30px;
+    font-size: 20px;
+    margin-right: 650px;
+    margin-top: 270px;
+}
+.img2{
+    margin-top: 100px;
+}
+.logo2{
+    display: flex;
+    justify-content: space-between;
+}
+.p3{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    gap: 30px;
+    font-size: 19px;
+    margin-right: 650px;
+    margin-top: 220px;
+}
+.img3{
+    margin-top: 100px;
+}
+.logo3{
+    display: flex;
+    justify-content: space-between;
+}
+.p4{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    gap: 30px;
+    font-size: 20px;
+    margin-right: 650px;
+    margin-top: 220px;
+}
+
+.img4{
+    margin-top: 100px;
+}
+.logo4{
+    display: flex;
+    justify-content: space-between;
+}
+.p5{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    gap: 30px;
+    font-size: 20px;
+    margin-right: 650px;
+    margin-top: 220px;
+}
+.footer_nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(2, 0, 1, 0.421);
+}
+footer{
+    background: #0e182c;
+}
+.cart {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    z-index: 1000;
+}
+.product {
+    background: white;
+    border: 2px solid #ddd; /* Increased from 1px */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: center;
+    overflow: hidden;
+}
+

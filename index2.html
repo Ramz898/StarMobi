@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page with Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .header_nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header_nav img {
+            height: 60px;
+        }
+
+        .header_menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .header_menu li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .header_menu li a:hover {
+            color: #1abc9c;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-icon img {
+            height: 40px;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 40px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-info .price {
+            text-decoration: line-through;
+            color: #b5b5b5;
+        }
+
+        .product-info h3 {
+            color: #2c3e50;
+        }
+
+        .quantity-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            gap: 10px;
+        }
+
+        .quantity-control button {
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 18px;
+        }
+
+        .quantity-control button:hover {
+            background-color: #16a085;
+        }
+
+        .add-to-cart {
+            background-color: #1abc9c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            background-color: #16a085;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 15px;
+        }
+
+        .modal-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .modal-content ul li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .modal-content ul li img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .close-modal {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .close-modal:hover {
+            background-color: #c0392b;
+        }
+        .stul{
+            background-color: aqua;
+            width: 70px;
+
+            height: 70px;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            color: black;
+        }
+        .joylashtirish{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+            margin-right: 1000px;
+            margin-left: 50px;
+            color: black;
+        }
+        .kravat{
+
+            background-color: aqua;
+            width: 80px;
+            border-radius: 10px;
+        }
+        .devan{
+
+            background-color: aqua;
+            width: 80px;
+            border-radius: 10px;
+
+        }
+        .stol{
+            background-color: aqua;
+            width: 80px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="header_nav">
+                <img src="telegram-cloud-photo-size-2-5474148948370384332-x-removebg-preview.png" alt="Logo">
+                <ul class="header_menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+                <div class="cart-icon" onclick="toggleCartModal()">
+                    <img src="48.webp" alt="Cart Icon">
+                    <span id="cart-count">0</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="joylashtirish">
+        <div class="stul">
+            <h2><a href="index4.html">Stul</a></h2>
+
+        </div>
+        <div class="kravat">
+            <h2><a href="index5.html">kravat</a></h2>
+
+        </div>
+        <div class="devan">
+            <h2><a href="index6.html">devan</a></h2>
+
+        </div>
+        <div class="stol">
+            <h2><a href="index7.html">devan</a></h2>
+
+        </div>
+    </div>
+
+    <main class="cards">
+        <div class="product">
+            <img src="1-min_1a7b23d8-e00c-4bca-86fe-9c65a55bcd1d.png.webp" alt="Chair">
+            <div class="product-info">
+                <p class="price">Original price: $390</p>
+                <h3>Sale price: $280</h3>
+                <span class="stock" data-product="Chair">In stock: 10</span>
+                <div class="quantity-control">
+                    <button onclick="changeQuantity(this, -1)">-</button>
+                    <span class="quantity">1</span>
+                    <button onclick="changeQuantity(this, 1)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Chair', 280, '1-min_1a7b23d8-e00c-4bca-86fe-9c65a55bcd1d.png.webp', this)">Add to cart</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://m.pm.ru/global_images/goods/02e/e8f/c4c/bb6/1210960_original.jpg" alt="Table">
+            <div class="product-info">
+                <p class="price">Original price: $300</p>
+                <h3>Sale price: $250</h3>
+                <span class="stock" data-product="Table">In stock: 15</span>
+                <div class="quantity-control">
+                    <button onclick="changeQuantity(this, -1)">-</button>
+                    <span class="quantity">1</span>
+                    <button onclick="changeQuantity(this, 1)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Table', 250, '2.jpeg', this)">Add to cart</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://avatars.mds.yandex.net/get-altay/4079855/2a0000017b3d200ea747c0056a8a56ef42c7/XL" alt="Lamp">
+            <div class="product-info">
+                <p class="price">Original price: $150</p>
+                <h3>Sale price: $120</h3>
+                <span class="stock" data-product="Lamp">In stock: 20</span>
+                <div class="quantity-control">
+                    <button onclick="changeQuantity(this, -1)">-</button>
+                    <span class="quantity">1</span>
+                    <button onclick="changeQuantity(this, 1)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Lamp', 120, '3.jpg', this)">Add to cart</button>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="https://loftmart.uz/uploads/images/2024-02-13/pnHLHHTWyFKo4ZCBToxZqB4slmvF8xD39Srd7yoH.jpg" alt="Sofa">
+            <div class="product-info">
+                <p class="price">Original price: $600</p>
+                <h3>Sale price: $500</h3>
+                <span class="stock" data-product="Sofa">In stock: 5</span>
+                <div class="quantity-control">
+                    <button onclick="changeQuantity(this, -1)">-</button>
+                    <span class="quantity">1</span>
+                    <button onclick="changeQuantity(this, 1)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('Sofa', 500, '4.jpg', this)">Add to cart</button>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <h3>Your Cart</h3>
+            <ul id="cart-items"></ul>
+            <button class="close-modal" onclick="toggleCartModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let stock = { "Chair": 10, "Table": 15, "Lamp": 20, "Sofa": 5 }; // Запасы товара
+
+        function addToCart(name, price, image, button) {
+            const quantityElement = button.parentElement.querySelector('.quantity');
+            const quantity = parseInt(quantityElement.textContent);
+            const existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.quantity += quantity; // Увеличиваем количество на количество из карточки
+            } else {
+                cart.push({ name, price, quantity, image }); // Добавляем новый товар с количеством
+            }
+
+            stock[name] -= quantity; // Уменьшаем запас на количество
+            updateStockDisplay(name);
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById("cart-count").textContent = totalCount;
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById("cart-modal");
+            modal.style.display = modal.style.display === "flex" ? "none" : "flex";
+            renderCartItems();
+        }
+
+        function renderCartItems() {
+            const cartItemsContainer = document.getElementById("cart-items");
+            cartItemsContainer.innerHTML = "";
+
+            cart.forEach((item, index) => {
+                const li = document.createElement("li");
+                li.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    ${item.name} - $${item.price} x ${item.quantity}
+                    <div>
+                        <button onclick="changeCartItemQuantity(${index}, -1)">-</button>
+                        <span>${item.quantity}</span>
+                        <button onclick="changeCartItemQuantity(${index}, 1)">+</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(li);
+            });
+        }
+
+        function changeCartItemQuantity(index, change) {
+            const item = cart[index];
+            item.quantity += change;
+
+            if (item.quantity <= 0) {
+                stock[item.name] += 1;
+                cart.splice(index, 1);
+            }
+
+            updateStockDisplay(item.name);
+            updateCartCount();
+            renderCartItems();
+        }
+
+        function updateStockDisplay(name) {
+            const stockDisplays = document.querySelectorAll(`.stock[data-product="${name}"]`);
+            stockDisplays.forEach(stockDisplay => {
+                stockDisplay.textContent = `In stock: ${stock[name]}`;
+            });
+        }
+
+        function changeQuantity(button, change) {
+            const quantityElement = button.parentElement.querySelector('.quantity');
+            let quantity = parseInt(quantityElement.textContent);
+            quantity += change;
+
+            if (quantity < 1) quantity = 1; // Минимальное количество 1
+            quantityElement.textContent = quantity;
+        }
+    </script>
+</body>
+</html>

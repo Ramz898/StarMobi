@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #f4f6f9;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1e2a3a; /* Темно-синий фон */
+    padding: 20px 0;
+}
+
+.header_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header_menu {
+    display: flex;
+    gap: 30px;
+}
+
+.header_menu li a {
+    color: #ecf0f1;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.header_menu li a:hover {
+    color: #f39c12; /* Яркий желтый */
+    transform: translateY(-3px);
+}
+
+.header_menu li a.active {
+    color: #f39c12;
+    border-bottom: 2px solid #f39c12;
+}
+
+img {
+    max-width: 150px;
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.1);
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+main {
+    background-color: #34495e; /* Темный синий оттенок */
+    color: #ecf0f1;
+    height: 650px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.main_info {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 30px;
+}
+
+h2 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeIn 1s forwards;
+}
+
+.h22 {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.main_info a {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #f39c12;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.main_info a:hover {
+    color: #34495e;
+    transform: scale(1.05);
+}
+
+.product {
+    text-align: center;
+}
+
+.product img {
+    max-width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product button {
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.product button:hover {
+    background-color: #e67e22;
+}
+
+.cart {
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.cart button {
+    background-color: #e74c3c; /* Красный */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart button:hover {
+    background-color: #c0392b;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px 0;
+}
+
+.footer_nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer_nav li a {
+    color: #ecf0f1;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer_nav li a:hover {
+    color: #f39c12; /* Яркий желтый */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
